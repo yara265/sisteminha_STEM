@@ -1,0 +1,143 @@
+from sist import *
+
+###CLICKS PRINCIPAIS###
+
+def cadastrar():
+    janelaCad = Toplevel()
+    janelaCad.title("CADASTRO")
+    janelaCad["bg"] = "#00008B"
+    janelaCad.geometry("300x300+200+200")
+    ##importando as imagens
+    ##imgfundo = PhotoImage(file="CADASTRO.png")
+    imgbuttonvoltar = PhotoImage(file="VOLTAR.png")
+    imgbuttonsalvar = PhotoImage(file="SALVAR.png")
+
+    back = Label(janelaCad)
+    back.la = PhotoImage(file='CADASTRO.png')
+    back['image'] = back.la
+    back.pack()
+
+
+    ##labFundo = Label(janelaCad, image=imgfundo)
+    ##labFundo.pack()
+
+    ##caixas de texto
+    caixaProp = Entry(janelaCad, bd=2, justify=CENTER)
+    caixaProp.place(width=240, height=18, x=30, y=63)
+
+    caixaModelo = Entry(janelaCad, bd=2, justify=CENTER)
+    caixaModelo.place(width=240, height=18, x=30, y=100)
+
+    caixaPlaca = Entry(janelaCad, bd=2, justify=CENTER)
+    caixaPlaca.place(width=240, height=18, x=30, y=141)
+
+    caixaAno = Entry(janelaCad, bd=2, justify=CENTER)
+    caixaAno.place(width=240, height=18, x=30, y=180)
+
+    caixaMarca = Entry(janelaCad, bd=2, justify=CENTER)
+    caixaMarca.place(width=240, height=18, x=30, y=220)
+
+    ##botões
+
+
+    btnVoltar = Button(janelaCad, image=imgbuttonvoltar, width=15,command=voltar)
+    btnVoltar.place(width=90, height=40, x=45, y=250)
+
+    btnSalvar = Button(janelaCad, image=imgbuttonsalvar, width=15,command=salvar)
+    btnSalvar.place(width=90, height=40, x=166, y=250)
+
+    janelaCad.mainloop()
+
+
+def registrarOcorrencia():
+    ##
+    janelaOco = Toplevel()
+    janelaOco.title("REGISTRO DE OCORRÊNCIA")
+    janelaOco["bg"] = "#00008B"
+    janelaOco.geometry("300x300+200+200")
+    ##importando as imagens
+    imgfundo = PhotoImage(file="OCORRENCIA.png")
+    imgbuttonregist = PhotoImage(file="REGISTRAR.png")
+
+
+    labFundo = Label(janelaOco, image=imgfundo)
+    labFundo.pack()
+
+    caixaProp = Entry(janelaOco, bd=2, justify=CENTER)
+    caixaProp.place(width=240, height=18, x=30, y=63)
+
+    caixaModelo = Entry(janelaOco, bd=2, justify=CENTER)
+    caixaModelo.place(width=240, height=18, x=30, y=100)
+
+    caixaLugar = Entry(janelaOco, bd=2, justify=CENTER)
+    caixaLugar.place(width=240, height=99, x=30, y=141)
+
+    btnRegistrar = Button(janelaOco, image=imgbuttonregist, width=15,command=registrar)
+    btnRegistrar.place(width=122, height=40, x=88, y=250)
+
+    janelaOco.mainloop()
+
+
+def consultarCadastro():
+    print()
+
+def sair():
+   print()
+
+###CLICKS SECUNDÁRIOS###
+def salvar(): ##quando apertar o botão 'salvar' da tela de cadastro
+    print()
+def registrar():##qaundo clicar no botão 'registrar' da tela de registrar ocorrência
+    janelaReg = Tk()
+    janelaReg.title("LOCALIZADOR")
+    janelaReg["bg"] = "#00008B"
+
+    lbtexto = Label(janelaReg, text="A LOCALIZAÇÃO DO SEU CARRO É ESTA:", font=("Georgia",10))
+    lbtexto.place(x=15, y=20)
+    lbtexto["bg"] = "#00008B"
+
+    lblocal=Label(janelaReg,text="Av.Silves",font=(8))
+    lblocal.place(x=15, y=50)
+
+    janelaReg.geometry("300x300+200+200")
+    janelaReg.mainloop()
+
+def voltar():##tentar colocar pra chamar 'interfacePrincipal()'-tava dando erro not defined
+    janela=Toplevel()
+    janela.title("MENU PRINCIPAL")
+    janela["bg"]="#00008B"
+    ##importando imagens
+    btnCadastrar=PhotoImage(file="CADASTRAR (1).png")
+    btnConsultar=PhotoImage(file="CONSULTAR.png")
+    btnRegistrarOco=PhotoImage(file="REGISTRAROCO.png")
+    btnSair=PhotoImage(file="SAIR.png")
+    fundoMenu=PhotoImage(file="MENU.png")
+
+
+    lb=Label(janela,image=fundoMenu)
+    lb.pack()
+
+
+    bt1=Button(janela,image=btnCadastrar,command=cadastrar)
+    bt1.place(width=126,height=41,x=87,y=64)
+    bt1["activebackground"] = "#0000CD"
+
+
+
+    bt2 = Button(janela,image=btnConsultar,command=consultarCadastro)
+    bt2.place(width=126,height=41,x=87,y=125)
+    bt2["activebackground"] = "#0000CD"
+
+    bt3 = Button(janela,image=btnRegistrarOco,command=registrarOcorrencia)
+    bt3.place(width=126,height=41,x=87,y=185)
+    bt3["activebackground"] = "#0000CD"
+
+    bt4 = Button(janela,image=btnSair,command=sair)
+    bt4.place(width=126,height=41,x=87,y=245)
+    bt4["activebackground"] = "#0000CD"
+
+
+    ##.geometry("LxA+distância da tela esquerda+distância do topo")
+    janela.geometry("300x300+200+200")
+
+    janela.mainloop()

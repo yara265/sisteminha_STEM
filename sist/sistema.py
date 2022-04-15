@@ -1,0 +1,4 @@
+from sist import *
+
+interfacePrincipal()
+
