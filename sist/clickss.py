@@ -50,30 +50,36 @@ def cadastrar():
 
 
 def registrarOcorrencia():
-    ##
+
     janelaOco = Toplevel()
     janelaOco.title("REGISTRO DE OCORRÊNCIA")
     janelaOco["bg"] = "#00008B"
     janelaOco.geometry("300x300+200+200")
     ##importando as imagens
     imgfundo = PhotoImage(file="OCORRENCIA.png")
-    imgbuttonregist = PhotoImage(file="REGISTRAR.png")
+    imgbuttonregist = PhotoImage(file="REGISTRAR1.png")
+    imgbuttonvoltar= PhotoImage(file="VOLTAR1.png")
 
 
     labFundo = Label(janelaOco, image=imgfundo)
     labFundo.pack()
 
     caixaProp = Entry(janelaOco, bd=2, justify=CENTER)
-    caixaProp.place(width=240, height=18, x=30, y=63)
+    caixaProp.place(width=240, height=18, x=30, y=74)
 
     caixaModelo = Entry(janelaOco, bd=2, justify=CENTER)
-    caixaModelo.place(width=240, height=18, x=30, y=100)
+    caixaModelo.place(width=240, height=18, x=30, y=115)
 
     caixaLugar = Entry(janelaOco, bd=2, justify=CENTER)
-    caixaLugar.place(width=240, height=99, x=30, y=141)
+    caixaLugar.place(width=240, height=79, x=31, y=158)
+
+    btnVoltar = Button(janelaOco, image=imgbuttonvoltar, width=15, command=voltar)
+    btnVoltar.place(width=91, height=40, x=44, y=247)
 
     btnRegistrar = Button(janelaOco, image=imgbuttonregist, width=15,command=registrar)
-    btnRegistrar.place(width=122, height=40, x=88, y=250)
+    btnRegistrar.place(width=91, height=40, x=170, y=247)
+
+
 
     janelaOco.mainloop()
 

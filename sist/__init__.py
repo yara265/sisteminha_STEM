@@ -1,8 +1,6 @@
 from tkinter import*
 from sist.clickss import *
 
-
-
 def interfacePrincipal():
 
     janela=Tk()
