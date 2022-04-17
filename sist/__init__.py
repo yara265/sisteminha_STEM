@@ -13,16 +13,12 @@ def interfacePrincipal():
     btnSair=PhotoImage(file="SAIR.png")
     fundoMenu=PhotoImage(file="MENU.png")
 
-
     lb=Label(janela,image=fundoMenu)
     lb.pack()
-
 
     bt1=Button(janela,image=btnCadastrar,command=cadastrar)
     bt1.place(width=126,height=41,x=87,y=64)
     bt1["activebackground"] = "#0000CD"
-
-
 
     bt2 = Button(janela,image=btnConsultar,command=consultarCadastro)
     bt2.place(width=126,height=41,x=87,y=125)
