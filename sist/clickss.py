@@ -17,6 +17,56 @@ def cadastrar():
     back['image'] = back.la
     back.pack()
 
+    def salvar():
+        reg_nome = caixaProp.get()
+        reg_modelo = caixaModelo.get()
+        reg_placa = caixaPlaca.get()
+        reg_ano = caixaAno.get()
+        reg_marca = caixaMarca.get()
+        data = {'1': reg_nome, '2': reg_modelo, '3': reg_placa, '4': reg_ano, '5': reg_marca}
+
+        with open("cadastro.txt", "a", encoding='utf-8') as arq:
+            arq.write("---------------------------------------------------\n")
+            arq.write("  Proprietáio: " + data['1'] + "\n")
+            arq.write("  Modelo: " + data["2"] + "\n")
+            arq.write("  Placa: " + data["3"] + "\n")
+            arq.write("  Ano de Modificação: " + data["4"] + "\n")
+            arq.write("  Marca: " + data["5"] + "\n\n\n")
+            arq.close()
+
+        janela = Toplevel()
+        janela.title("MENU PRINCIPAL")
+        janela["bg"] = "#00008B"
+        ##importando imagens
+        btnCadastrar = PhotoImage(file="CADASTRAR (1).png")
+        btnConsultar = PhotoImage(file="CONSULTAR.png")
+        btnRegistrarOco = PhotoImage(file="REGISTRAROCO.png")
+        btnSair = PhotoImage(file="SAIR.png")
+        fundoMenu = PhotoImage(file="MENU.png")
+
+        lb = Label(janela, image=fundoMenu)
+        lb.pack()
+
+        bt1 = Button(janela, image=btnCadastrar, command=cadastrar)
+        bt1.place(width=126, height=41, x=87, y=64)
+        bt1["activebackground"] = "#0000CD"
+
+        bt2 = Button(janela, image=btnConsultar, command=consultarCadastro)
+        bt2.place(width=126, height=41, x=87, y=125)
+        bt2["activebackground"] = "#0000CD"
+
+        bt3 = Button(janela, image=btnRegistrarOco, command=registrarOcorrencia)
+        bt3.place(width=126, height=41, x=87, y=185)
+        bt3["activebackground"] = "#0000CD"
+
+        bt4 = Button(janela, image=btnSair, command=sair)
+        bt4.place(width=126, height=41, x=87, y=245)
+        bt4["activebackground"] = "#0000CD"
+
+        ##.geometry("LxA+distância da tela esquerda+distância do topo")
+        janela.geometry("300x300+200+200")
+
+        janela.mainloop()
 
     ##labFundo = Label(janelaCad, image=imgfundo)
     ##labFundo.pack()
@@ -42,10 +92,12 @@ def cadastrar():
     btnVoltar = Button(janelaCad, image=imgbuttonvoltar, width=15,command=voltar)
     btnVoltar.place(width=90, height=40, x=45, y=250)
 
-    btnSalvar = Button(janelaCad, image=imgbuttonsalvar, width=15,command=salvar())
+    btnSalvar = Button(janelaCad, image=imgbuttonsalvar, width=15,command=salvar)
     btnSalvar.place(width=90, height=40, x=166, y=250)
 
+
     janelaCad.mainloop()
+
 
 
 
@@ -90,8 +142,7 @@ def sair():
    print()
 
 ###CLICKS SECUNDÁRIOS###
-def salvar():  ##quando apertar o botão 'salvar' da tela de cadastro
-    print()
+
 def registrar():##qaundo clicar no botão 'registrar' da tela de registrar ocorrência
     janelaReg = Tk()
     janelaReg.title("LOCALIZADOR")
