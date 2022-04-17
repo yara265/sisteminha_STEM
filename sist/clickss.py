@@ -37,16 +37,16 @@ def cadastrar():
     caixaMarca = Entry(janelaCad, bd=2, justify=CENTER)
     caixaMarca.place(width=240, height=18, x=30, y=220)
 
+
     ##botões
-
-
     btnVoltar = Button(janelaCad, image=imgbuttonvoltar, width=15,command=voltar)
     btnVoltar.place(width=90, height=40, x=45, y=250)
 
-    btnSalvar = Button(janelaCad, image=imgbuttonsalvar, width=15,command=salvar)
+    btnSalvar = Button(janelaCad, image=imgbuttonsalvar, width=15,command=salvar())
     btnSalvar.place(width=90, height=40, x=166, y=250)
 
     janelaCad.mainloop()
+
 
 
 def registrarOcorrencia():
@@ -79,9 +79,8 @@ def registrarOcorrencia():
     btnRegistrar = Button(janelaOco, image=imgbuttonregist, width=15,command=registrar)
     btnRegistrar.place(width=91, height=40, x=170, y=247)
 
-
-
     janelaOco.mainloop()
+
 
 
 def consultarCadastro():
@@ -91,7 +90,7 @@ def sair():
    print()
 
 ###CLICKS SECUNDÁRIOS###
-def salvar(): ##quando apertar o botão 'salvar' da tela de cadastro
+def salvar():  ##quando apertar o botão 'salvar' da tela de cadastro
     print()
 def registrar():##qaundo clicar no botão 'registrar' da tela de registrar ocorrência
     janelaReg = Tk()
@@ -147,3 +146,4 @@ def voltar():##tentar colocar pra chamar 'interfacePrincipal()'-tava dando erro 
     janela.geometry("300x300+200+200")
 
     janela.mainloop()
+

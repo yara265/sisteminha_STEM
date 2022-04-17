@@ -19,11 +19,9 @@ def telaReg():
     caixaModelo = Entry(janelaOco, bd=2, justify=CENTER)
     caixaModelo.place(width=240, height=18, x=30, y=100)
 
-    caixaLugar = Entry(janelaOco, bd=2, justify=CENTER)
-    caixaLugar.place(width=240, height=99, x=30, y=141)
 
-    btnSalvar = Button(janelaOco, image=imgbuttonregist, width=15)
+
+    btnSalvar = Button(janelaOco, image=imgbuttonregist, width=15,command=salvar)
     btnSalvar.place(width=122, height=40, x=88, y=250)
 
     janelaOco.mainloop()
-
