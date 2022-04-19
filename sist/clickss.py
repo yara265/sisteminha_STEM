@@ -1,5 +1,6 @@
-from sist import *
-
+import tkinter
+from tkinter import *
+from tkinter import ttk
 ###CLICKS PRINCIPAIS###
 
 def cadastrar():
@@ -26,12 +27,12 @@ def cadastrar():
         data = {'1': reg_nome, '2': reg_modelo, '3': reg_placa, '4': reg_ano, '5': reg_marca}
 
         with open("cadastro.txt", "a", encoding='utf-8') as arq:
-            arq.write("---------------------------------------------------\n")
+            arq.write(" 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 \n")
             arq.write("  Proprietáio: " + data['1'] + "\n")
             arq.write("  Modelo: " + data["2"] + "\n")
             arq.write("  Placa: " + data["3"] + "\n")
             arq.write("  Ano de Modificação: " + data["4"] + "\n")
-            arq.write("  Marca: " + data["5"] + "\n\n\n")
+            arq.write("  Marca: " + data["5"] + "\n")
             arq.close()
 
         janela = Toplevel()
@@ -89,7 +90,7 @@ def cadastrar():
 
 
     ##botões
-    btnVoltar = Button(janelaCad, image=imgbuttonvoltar, width=15,command=voltar)
+    btnVoltar = Button(janelaCad, image=imgbuttonvoltar, width=15,command=janelaCad.destroy)
     btnVoltar.place(width=90, height=40, x=45, y=250)
 
     btnSalvar = Button(janelaCad, image=imgbuttonsalvar, width=15,command=salvar)
@@ -124,11 +125,45 @@ def registrarOcorrencia():
 
     caixaLugar = Entry(janelaOco, bd=2, justify=CENTER)
     caixaLugar.place(width=240, height=79, x=31, y=158)
+    def salvar():
+        reg_nome = caixaProp.get()
+        reg_modelo = caixaModelo.get()
+        reg_lugar = caixaLugar.get()
 
-    btnVoltar = Button(janelaOco, image=imgbuttonvoltar, width=15, command=voltar)
+        data = {'1': reg_nome, '2': reg_modelo, '3': reg_lugar}
+
+        with open("registroOcorrencia.txt", "a", encoding='utf-8') as arq:
+            arq.write(" 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 🚗 \n")
+            arq.write("  Proprietáio: " + data['1'] + "\n")
+            arq.write("  Modelo: " + data["2"] + "\n")
+            arq.write("  Lugar do roubo: " + data["3"] + "\n")
+            arq.close()
+
+        janelaReg = Tk()
+        janelaReg.title("LOCALIZADOR")
+        janelaReg["bg"] = "#2a5afa"
+
+        lbtexto = Label(janelaReg, text="A LOCALIZAÇÃO DESSE CARRO É ESTA:", font=("Georgia", 10))
+        lbtexto.place(x=15, y=20)
+        lbtexto["bg"] = "#2a5afa"
+
+        lblocal = Label(janelaReg, text="Av.Silves", font=(8))
+        lblocal.place(x=15, y=50)
+        lblocal["bg"] = "#2a5afa"
+
+        btnVoltar = Button(janelaReg, text="<-", font=8, command=voltar)
+        btnVoltar.place(width=35, height=35, x=25, y=250)
+        btnVoltar["bg"] = "#092a57"
+        btnVoltar["activebackground"] = "#0000CD"
+
+        janelaReg.geometry("300x300+200+200")
+        janelaReg.mainloop()
+
+
+    btnVoltar = Button(janelaOco, image=imgbuttonvoltar, width=15, command=janelaOco.destroy)
     btnVoltar.place(width=91, height=40, x=44, y=247)
 
-    btnRegistrar = Button(janelaOco, image=imgbuttonregist, width=15,command=registrar)
+    btnRegistrar = Button(janelaOco, image=imgbuttonregist, width=15,command=salvar)
     btnRegistrar.place(width=91, height=40, x=170, y=247)
 
     janelaOco.mainloop()
@@ -136,7 +171,42 @@ def registrarOcorrencia():
 
 
 def consultarCadastro():
-    print()
+
+    janelaConsul = Toplevel()
+    janelaConsul.title("Consulta de cadastros")
+    janelaConsul["bg"] = "#00008B"
+    janelaConsul.geometry("300x300+200+200")
+
+    btnvoltar=PhotoImage(file="VOLTARCONSULT.png")
+
+
+    back = Label(janelaConsul)
+    back.la = PhotoImage(file='CONSULTA.png')
+    back['image'] = back.la
+    back.pack()
+
+    def Consultar():
+        with open("cadastro.txt", "r", encoding='utf-8') as arq:
+            txt = arq.read()
+            arq.close()
+        return txt
+
+    Consultar()
+    txt2 = Consultar()
+
+
+
+    labelNome = Label(janelaConsul, text=txt2, font=(8))
+    labelNome.place(x=10, y=50)
+    labelNome["bg"] = "#2a5afa"
+
+    btnVoltar = Button(janelaConsul,  text="<-",font=8, command=janelaConsul.destroy)
+    btnVoltar.place(width=35, height=35,x=25, y=250)
+    btnVoltar["bg"]="#092a57"
+    btnVoltar["activebackground"] = "#0000CD"
+
+
+    janelaConsul.mainloop
 
 def sair():
    print()

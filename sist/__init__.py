@@ -1,5 +1,5 @@
 from tkinter import*
-from sist.clickss import *
+from clickss import *
 
 def interfacePrincipal():
 
@@ -28,7 +28,7 @@ def interfacePrincipal():
     bt3.place(width=126,height=41,x=87,y=185)
     bt3["activebackground"] = "#0000CD"
 
-    bt4 = Button(janela,image=btnSair,command=sair)
+    bt4 = Button(janela,image=btnSair,command=janela.destroy)
     bt4.place(width=126,height=41,x=87,y=245)
     bt4["activebackground"] = "#0000CD"
 

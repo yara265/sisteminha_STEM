@@ -1,4 +1,4 @@
-from sist import *
+from __init__ import *
 
 interfacePrincipal()
 
